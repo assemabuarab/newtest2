@@ -30,7 +30,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    /* المتغيرات */
     :root {
       --gold-primary: #FFC107;
       --gold-secondary: #FFD54F;
@@ -75,14 +74,19 @@
     }
 
     h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 28px; /* تم تصغير حجم الخط */
+      margin-bottom: 5px;
     }
     
     .subtitle {
-      font-size: 18px;
+      font-size: 16px; /* تم تصغير حجم الخط */
       font-weight: 500;
       opacity: 0.9;
+    }
+
+    @media (max-width: 480px) {
+        h1 { font-size: 24px; } /* حجم أصغر للهواتف */
+        .subtitle { font-size: 14px; } /* حجم أصغر للهواتف */
     }
     
     /* المحتوى الرئيسي */
@@ -110,13 +114,14 @@
     }
     
     .app-title {
-      font-size: 24px;
+      font-size: 22px; /* تم تصغير حجم الخط */
       font-weight: 800;
       color: var(--text-dark);
       margin-bottom: 10px;
     }
     
     .app-description {
+      font-size: 15px;
       color: #555;
       margin-bottom: 30px;
       line-height: 1.7;
@@ -212,7 +217,7 @@
     }
 
     .section-title {
-      font-size: 28px;
+      font-size: 24px; /* تم تصغير حجم الخط */
       margin-bottom: 30px;
       position: relative;
     }
@@ -454,14 +459,12 @@
   </footer>
 
   <script>
-    // إخفاء شاشة التحميل بعد 1.5 ثانية
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader').style.display = 'none';
       }, 1500);
     });
     
-    // تعيين اللغة التلقائي
     const userLang = navigator.language.startsWith("ar") ? "ar" : "en";
     setLanguage(userLang);
 
@@ -476,7 +479,6 @@
       document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = lang;
       
-      // Highlight the active language button
       langButtons.forEach(btn => {
         btn.classList.remove('active');
         if (btn.textContent.includes(lang === 'ar' ? '🇸🇦' : '🇺🇸')) {
